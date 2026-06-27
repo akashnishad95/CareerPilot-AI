@@ -69,8 +69,20 @@ user: {
     },
  });
 }
+
+/**
+ * 
+ * @name logoutUserController
+ * @desc clear the token from user cookies and add it to the blacklist
+ * access Public
+ * 
+ */
+
 async function logoutUserController(req, res) {
-    
+    // console.log(req.cookies.token)
+    if(!req.cookies.token) {
+        return res.status(400).json({ message: 'No token found in cookies' })
+    }
     const token = req.cookies.token
     if (token) 
     {
@@ -82,6 +94,21 @@ async function logoutUserController(req, res) {
     }
 }
 
+/**
+ * @name getMeController
+ * @desc Get the logged-in user's information
+ * @access Private
+ */
+async function getMeController(req, res) {
+    const user = await User.findById(req.user.id)
+    res.status(200).json({
+        message: 'User information retrieved successfully',
+        id: user._id,
+        username: user.username,
+        email: user.email
+    })
+}
 
 
-module.exports = { registerUserController, loginUserController, logoutUserController }
+
+module.exports = { registerUserController, loginUserController, logoutUserController, getMeController }
