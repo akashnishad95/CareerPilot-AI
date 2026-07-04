@@ -15,4 +15,30 @@ export const useAuth=()=>{
          setLoading(false)
          return data
 
-    }}
+    }
+
+const handleRegister=async({email,password,name})=>{
+    setLoading(true)
+     const data = await register({email,password,name})
+     setUser(data.user)
+     setLoading(false)
+     return data
+}
+
+const handleLogout=async()=>{
+    setLoading(true)
+     await logout()
+     setUser(null)
+     setLoading(false)
+}
+
+const handleGetMe=async()=>{
+    setLoading(true)
+     const data = await getMe()
+     setUser(data.user)
+     setLoading(false)
+     return data
+}
+
+return {user,loading,handleLogin,handleRegister,handleLogout,handleGetMe}
+}
