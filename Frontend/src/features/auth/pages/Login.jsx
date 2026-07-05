@@ -1,17 +1,26 @@
 import React,{useState} from 'react';
 import {useNavigate,Link} from "react-router";
 import './auth_form.scss';
+import { useAuth } from '../hooks/useAuth.jsx';
 
+
+
+ 
 const Login = () => {
  const {loading,handleLogin}=useAuth()
+ const navigate=useNavigate()
+
  const [email,setEmail]=useState("")
  const [password,setPassword]=useState("")
+
 
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin({email,password})
+  
+     handleLogin({email,password})
     // Handle login logic here
+    navigate('/');
   }
   if (loading) {
     return <div>Loading...</div>;
