@@ -33,11 +33,11 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="input_group">
             <label htmlFor="email">Email</label>
-            <input onchange={(e)=>setEmail(e.target.value)} type="email" id="email" name="email" placeholder="Enter your email" />
+            <input onChange={(e)=>setEmail(e.target.value)} type="email" id="email" name="email" placeholder="Enter your email" />
           </div>
           <div className="input_group">
             <label htmlFor="password">Password</label>
-            <input onchange={(e)=>setPassword(e.target.value)} type="password" id="password" name="password" placeholder="Enter your password" />
+            <input onChange={(e)=>setPassword(e.target.value)} type="password" id="password" name="password" placeholder="Enter your password" />
           </div>
           <button className="button btn-primary" type="submit">Login</button>
         </form>

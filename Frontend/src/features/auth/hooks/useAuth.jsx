@@ -3,7 +3,8 @@ import {AuthContext} from "../auth_context.jsx";
 import {login,register,logout,getMe} from "../services/auth_api.jsx";
 
 
-export const useAuth=()=>{
+  export  const useAuth=()=>{
+    
     const context=useContext(AuthContext)
     const {user,setUser,loading,setLoading}=context
     
@@ -14,10 +15,10 @@ export const useAuth=()=>{
         try {
          const data = await login({email,password})
          setUser(data.user)
-         setLoading(false)
+         
          
 
-    } catch (error) {
+    } catch (err) {
         
         
     }finally{
@@ -32,7 +33,7 @@ const handleRegister=async({email,password,name})=>{
      setUser(data.user)
      
     
-} catch (error) {
+} catch (err) {
     } finally{
         setLoading(false)
     }
@@ -42,7 +43,7 @@ const handleLogout=async()=>{
      try {
         const data = await logout()
         setUser(null)
-    } catch (error) {
+    } catch (err) {
 
     } finally {
         setLoading(false)

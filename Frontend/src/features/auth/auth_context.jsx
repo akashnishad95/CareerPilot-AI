@@ -1,10 +1,11 @@
 import {createContext} from "react";
 import {useState} from "react";
-import {useAuth} from "./hooks/useAuth.jsx";
+
 
 export const AuthContext = createContext()
 
 export const AuthProvider = ({children})=>{
+
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(false)
 

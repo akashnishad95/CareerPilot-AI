@@ -11,13 +11,13 @@ export async function register({username,email,password}){
             username,email,password
         })
         return response.data
-    } catch (err){
+    } catch(err){
      console.log(err)
 }
 } 
 export async function login({email,password}){
     try{ 
-        const respose= await api.post('/api/auth/login',{
+        const response=await api.post('/api/auth/login',{
             email,password
         })
         return response.data
