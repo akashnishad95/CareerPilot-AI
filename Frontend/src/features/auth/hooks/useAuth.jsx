@@ -52,6 +52,7 @@ const handleLogout=async()=>{
 }
 
 
+
 return {user,loading,handleLogin,handleRegister,handleLogout}
 }
 
