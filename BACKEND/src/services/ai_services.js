@@ -52,11 +52,13 @@ ${selfDescription}`
     contents:prompt,
     config:{
         responseMimeType:"application/json",
-        responseJsonSchema: zodToJsonSchema(interviewReportSchema),
+        responseSchema: zodToJsonSchema(interviewReportSchema),
+
     }
 
  })
- console.log(JSON.parse(response.text))
+return response.parsed
+ //return JSON.parse(response.text)
 
 }
 

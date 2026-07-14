@@ -85,7 +85,11 @@ matchScore: {
 technicalQuestions: [interviewQuestionsSchema],
 behavioralQuestions: [behavioralQuestionsSchema],
 skillsGap: [skillsGapSchema],
-preparation: [preparationSchema]
+preparation: [preparationSchema],
+user:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users"
+}
 
 },
 { timestamps: true 
