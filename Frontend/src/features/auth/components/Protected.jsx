@@ -12,10 +12,10 @@ const Protected = ({children}) => {
     return <main><div>Loading...</div></main>;
   }
 
-  if (!user) {
-    return <Navigate to={"/login"} />
+  // if (!user) {
+  //   return <Navigate to={"/login"} />
     
-  }
+  // }
 
   return children;
 }
